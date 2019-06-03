@@ -1,0 +1,93 @@
+ <!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+<title>loading</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link rel="stylesheet" type="text/css" href="css/public.css">
+
+
+</head>
+<style type="text/css">
+		html, body {
+		             width: 100%;
+		             height: 100%;
+		             position: relative;
+		             margin: 0;
+		             background: #fafafa;
+		         }
+		         figcaption, figure {
+		             margin: 0;
+		         }
+		         figure img {
+		             width: 100%;
+		         }
+	 .mediaBox { width: 100%;height: 200px;background-color: #fff;}
+	 .mediaBox.fixed {position: fixed;bottom: 0px; right: 0;width: 187px;height:90px;  }
+	 .mediaBox video { width: 100%;height: 100%; }
+	 .title {
+             font-size: 18px;
+             text-align: center;
+             margin-bottom:15px;
+             font-weight: bold;
+             margin-top: 20px;
+         }
+	 .content { padding:15px 15px 67px 15px;}
+     .content p { margin-bottom: 15px;text-indent: 2em;line-height: 1.8}
+     .content .cell { width: 100%;margin-bottom: 20px; }
+     .aplayer-author { display: none; }
+</style>
+<body>    
+	<div class="title">原始瓷的制作工艺及保护传承</div>
+	<div class="mediaBox" id="video">
+		 <!--  <video src="http://fztk.dodoedu.com/read-demo/test.mp4"  id="video">
+                 <source src="http://fztk.dodoedu.com/read-demo/test.mp4" type='video/mp4' controls></source>
+		  </video> -->
+	</div>
+	<div class="content my-gallery" id="content">
+       <p>1.原谅采集与加工。将从萧山本地山上开采的瓷石挑选、粉碎，和瓷土按一定配比，投入球磨机研磨当研磨至规定的细度时，放出泥浆，经压榨滤水、练泥陈腐，待用</p>
+       <p>2.拉胚成型。取一定量的泥段，用手工拍打成柱形，在拉胚车上慢慢地拉制成指定的器身，然后粘接侧耳和底脚，经修坯，阴干。</p>
+	   <p>3.施釉。施釉方法视坯件的形状大小、釉层厚度而定。施内釉时，采用荡釉的方法；施外釉时，采用浸釉的方法。</p>
+    </div>
+<!-- <script type="text/javascript" src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script> -->
+<script type="text/javascript" src="js/ckplayer/ckplayer/ckplayer.js"></script>
+<script type="text/javascript">
+      var videoObject = {
+                container: '#video',//“#”代表容器的ID，“.”或“”代表容器的class
+                variable: 'player',//该属性必需设置，值等于下面的new chplayer()的对象
+                flashplayer:false,//如果强制使用flashplayer则设置成true
+                video:'http://fztk.dodoedu.com/read-demo/test.mp4'//视频地址
+          };
+     var player = new ckplayer(videoObject);
+     (function () {
+        var firstPoint = 0;
+        var nowPoint = 0;
+        var dex = 0;
+        var beforelength = 0;
+        var vr =0;
+        //手指按下
+       var content = document.getElementById("content");
+       content.addEventListener('touchstart',function (e) {
+            firstPoint = e.changedTouches[0].clientX;
+        })
+        //手指移动
+        content.addEventListener('touchend',function (e) {
+            nowPoint = e.changedTouches[0].clientX;
+            dex = nowPoint - firstPoint;
+            // console.log(dex);
+            console.log(dex);
+            if(dex > 60) {
+            	 window.location.href = "/yuedu-demo/index.html"
+            }else{
+            	 
+            }
+        })
+
+       })()
+</script>
+      
+
+</body>
+</html>

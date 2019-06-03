@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+<title>直播</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<style type="text/css">
+			body {
+				margin: 0;
+				padding: 0px;
+				font-family: "Microsoft YaHei", YaHei, "微软雅黑", SimHei, "黑体";
+				font-size: 14px
+			}
+</style>
+
+</head>
+<body>  
+<div id="video" style="width: 600px; height: 400px;"></div>
+<input type="file" onchange="changeImgFu(this)"/>
+<script type="text/javascript">
+function changeImgFu(self){//self就是接到this传过来形参
+  var files = self.files[0];//获取到用户的图片
+  var reader=new FileReader();//创建一个转换函数
+  reader.readAsDataURL(files);//把用户的图片放进去
+  reader.onload=function(){//监听转换完成事件
+    console.log(this.result);//this.result就是base64
+  }
+}
+</script>
+<script type="text/javascript" src="ckplayer/ckplayer.js" charset="UTF-8"></script>  
+<script type="text/javascript">
+	var videoObject = {
+				//playerID:'ckplayer01',//播放器ID，第一个字符不能是数字，用来在使用多个播放器时监听到的函数将在所有参数最后添加一个参数用来获取播放器的内容
+				container: '#video', //容器的ID或className
+				variable: 'player', //播放函数名称
+				autoplay: true, //是否自动播放
+				config: '', //指定配置函数
+				debug: true, //是否开启调试模式
+				flashplayer: true, //强制使用flashplayer
+				//mobileCkControls:true,//是否在移动端（包括ios）环境中显示控制栏
+				//live:true,//是否是直播视频，true=直播，false=点播
+				live:true,
+				video: 'rtmp://58.200.131.2:1935/livetv/hunantv' 
+			};
+			var player = new ckplayer(videoObject);
+</script>
+</body>
+</html>
